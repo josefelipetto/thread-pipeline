@@ -77,7 +77,7 @@ public class Exercicio2 {
                try
                {
                    canFilter.acquire();
-                   
+
                    canFilterByAnalyser.acquire();
 
                    filtered = generated.toUpperCase();
