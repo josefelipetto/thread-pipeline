@@ -16,7 +16,7 @@ public class Exercicio2 {
 
     public static String filtered;
 
-    private static String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    private static String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
     public static void main(String[] args)
     {
@@ -78,11 +78,13 @@ public class Exercicio2 {
                {
                    canFilter.acquire();
 
-                   canFilterByAnalyser.acquire();
-
-                   filtered = generated.toUpperCase();
+                   String aux = String.copyValueOf(generated.toCharArray(),0,generated.length());
 
                    canGenerate.release();
+
+                   canFilterByAnalyser.acquire();
+
+                   filtered = aux.toUpperCase();
 
                    canAnalyse.release();
 
